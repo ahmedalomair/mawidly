@@ -1,0 +1,1 @@
+export default function Terms(){return <div className="card" style={{margin:40}}><h1>الشروط والأحكام</h1><p>باستخدامك للمنصة فأنت توافق على هذه الشروط.</p></div>}

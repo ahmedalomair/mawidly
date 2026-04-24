@@ -1,0 +1,1 @@
+export default function About(){return <div className="card" style={{margin:40}}><h1>من نحن</h1><p>موعدلي منصة رقمية لإدارة المواعيد والحجوزات.</p></div>}

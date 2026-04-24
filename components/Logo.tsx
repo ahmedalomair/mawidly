@@ -1,0 +1,1 @@
+export default function Logo(){return <div className="brand"><div className="brand-logo"><div className="m-shape">M</div><div className="clock"></div><div className="dots"><span></span><span></span><span></span></div></div><div><div className="brand-title">موعدلي</div><div className="brand-en">MAWIDLY</div></div></div>}

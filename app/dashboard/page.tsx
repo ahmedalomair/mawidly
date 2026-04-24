@@ -1,0 +1,17 @@
+import Shell from '@/components/Shell';
+import {CalendarDays,CheckCircle2,Clock3,MoreVertical,UserRound,Share2} from 'lucide-react';
+export default function Dashboard(){
+ const rows=[
+ ['سارة العنزي','قص شعر','25 مايو 2024','10:00 ص','ok'],
+ ['محمد الشهري','حلاقة + بشرة','25 مايو 2024','11:30 ص','wait'],
+ ['عبدالله الدوسري','تنظيف بشرة','25 مايو 2024','1:00 م','ok'],
+ ['نورة القحطاني','صبغة شعر','25 مايو 2024','2:30 م','cancel'],
+ ['ريم المالكي','بكج العناية','25 مايو 2024','4:00 م','ok'],
+ ];
+ return <Shell><div className="hero"><div className="illus"><div className="plant">🪴</div><div className="stand"><div className="miniM">M</div></div></div><div><h1>مرحباً بك، <span>أحمد</span> 👋</h1><p>هنا نظرة عامة على نشاطك اليوم</p><div className="date">الأحد 25 مايو 2024 📅</div></div></div>
+ <div className="kpis"><div className="kpi green"><div><small>إجمالي الحجوزات</small><b>248</b><small style={{color:'#33B34A'}}>↑ 12% عن الشهر الماضي</small></div><div className="bubble"><CalendarDays/></div></div><div className="kpi"><div><small>حجوزات اليوم</small><b>18</b><small>من 32 حجز</small></div><div className="bubble"><CalendarDays/></div></div><div className="kpi orange"><div><small>في انتظار التأكيد</small><b>6</b><small>تحتاج إلى تأكيد</small></div><div className="bubble"><Clock3/></div></div><div className="kpi"><div><small>الحجوزات المؤكدة</small><b>156</b><small>هذا الشهر</small></div><div className="bubble"><CheckCircle2/></div></div></div>
+ <div className="grid"><div><div className="card tablewrap"><div className="head"><a>عرض الكل</a><h3>أحدث الحجوزات</h3></div><table><thead><tr><th>العميل</th><th>الخدمة</th><th>التاريخ</th><th>الوقت</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody>{rows.map((r,i)=><tr key={i}><td><UserRound size={14}/> {r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td>{r[3]}</td><td><span className={'badge '+(r[4]=='ok'?'ok':r[4]=='wait'?'wait':'cancel')}>{r[4]=='ok'?'✓ مؤكد':r[4]=='wait'?'◷ في الانتظار':'× ملغي'}</span></td><td><button className="more"><MoreVertical size={18}/></button></td></tr>)}</tbody></table><button className="btn" style={{marginTop:18}}>عرض كل الحجوزات</button></div>
+ <div className="linkbox"><div className="stand" style={{position:'relative',right:'auto',top:'auto',width:170,height:120}}><div className="miniM" style={{fontSize:58}}>M</div></div><div><h2>رابط الحجز الخاص بنشاطك</h2><p>شارك رابط الحجز مع عملائك ليتمكنوا من حجز المواعيد بسهولة</p><div style={{display:'flex',gap:12,flexWrap:'wrap'}}><input value="https://mawidly.com/book/your-shop" readOnly/><button className="btn btn-primary"><Share2 size={18}/> مشاركة الرابط</button></div></div></div></div>
+ <div style={{display:'grid',gap:18}}><div className="card"><div className="head"><h3>التقويم</h3><a>عرض الكل</a></div><div style={{display:'flex',justifyContent:'space-between',marginBottom:18}}><span>‹</span><b>مايو 2024</b><span>›</span></div><div className="calendar">{['س','ح','ن','ث','ر','خ','ج','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'].map(d=><div className={d=='25'?'active-day':''} key={d}>{d}</div>)}</div></div>
+ <div className="card"><div className="head"><h3>أكثر الخدمات طلباً</h3><a>عرض الكل</a></div>{[['قص شعر',128,92],['حلاقة',96,75],['تنظيف بشرة',74,58],['صبغة شعر',45,35]].map(([n,v,w]:any)=><div className="chart-row" key={n}><b>{v}</b><div className="bar"><span style={{width:w+'%'}}></span></div><span>{n}</span></div>)}</div></div></div></Shell>
+}

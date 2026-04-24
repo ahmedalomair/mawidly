@@ -1,0 +1,9 @@
+'use client';
+import Link from 'next/link';
+import Logo from './Logo';
+import {Home,CalendarDays,Briefcase,Users,BarChart3,Settings,LogOut,Menu,Bell,CircleHelp,Share2} from 'lucide-react';
+export default function Shell({children}:{children:React.ReactNode}){
+return <div className="app"><aside className="sidebar"><Logo/><nav className="nav">
+<Link className="active" href="/dashboard"><Home/>لوحة التحكم</Link><Link href="/dashboard/bookings"><CalendarDays/>الحجوزات</Link><Link href="/dashboard/services"><Briefcase/>الخدمات</Link><Link href="/dashboard/customers"><Users/>عملاءك</Link><Link href="/dashboard/calendar"><CalendarDays/>التقويم</Link><Link href="/dashboard/reports"><BarChart3/>التقارير</Link><Link href="/dashboard/settings"><Settings/>الإعدادات</Link></nav>
+<div className="upgrade"><div className="crown">♛</div><h3>ارتقِ بنظامك</h3><p>احصل على مميزات إضافية ومتقدمة لنشاطك التجاري</p><Link href="/dashboard/billing"><button>عرض الباقات</button></Link></div><Link className="logout" href="/"><LogOut/>تسجيل الخروج</Link></aside>
+<main className="main"><div className="topbar"><button className="icon"><Menu/></button><div style={{display:'flex',alignItems:'center',gap:14}}><button className="icon"><Settings/></button><button className="icon"><CircleHelp/></button><button className="icon" style={{position:'relative'}}><Bell/><span style={{position:'absolute',top:3,right:4,background:'#0E9AAF',color:'#fff',borderRadius:99,fontSize:11,padding:'1px 6px'}}>3</span></button><div className="user"><div><b>أحمد المطيري</b><br/><small>صاحب الحساب</small></div><div className="avatar">أ</div></div></div></div><div className="content">{children}</div></main></div>}

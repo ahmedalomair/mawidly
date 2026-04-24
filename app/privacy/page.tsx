@@ -1,0 +1,1 @@
+export default function Privacy(){return <div className="card" style={{margin:40}}><h1>سياسة الخصوصية</h1><p>نحافظ على بيانات المستخدمين ولا نبيعها.</p></div>}
